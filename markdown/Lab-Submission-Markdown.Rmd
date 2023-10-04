@@ -1,7 +1,7 @@
 ---
 title: "Business Intelligence Lab Submission Markdown"
-author: "<Specify your group name here>"
-date: "<Specify the date when you submitted the lab>"
+author: "Wisdom"
+date: "4/10/2023"
 output:
   github_document: 
     toc: yes
@@ -11,40 +11,30 @@ output:
     df_print: default
 editor_options:
   chunk_output_type: console
+  markdown: 
+    wrap: 72
 ---
 
 # Student Details
 
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **Student ID Numbers and Names of Group Members** | *\<list one student name, group, and ID per line; you should be between 2 and 5 members per group\>* |
-|                                                   |                                                                                                      |
-|                                                   | 1.  ID - Group - Name                                                                                |
-|                                                   |                                                                                                      |
-|                                                   | 2.  ID - Group - Name                                                                                |
-|                                                   |                                                                                                      |
-|                                                   | 3.  ID - Group - Name                                                                                |
-|                                                   |                                                                                                      |
-|                                                   | 4.  ID - Group - Name                                                                                |
-|                                                   |                                                                                                      |
-|                                                   | 5.  ID - Group - Name                                                                                |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **GitHub Classroom Group Name**                   |                                                                                                      |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **Course Code**                                   | BBT4206                                                                                              |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **Course Name**                                   | Business Intelligence II                                                                             |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **Program**                                       | Bachelor of Business Information Technology                                                          |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
-| **Semester Duration**                             | 21^st^ August 2023 to 28^th^ November 2023                                                           |
-+---------------------------------------------------+------------------------------------------------------------------------------------------------------+
+|                                 |                                                   |                                                                                                                                                                                                                                                              |
+|------------------|------------------|------------------------------------|
+|                                 | **Student ID Numbers and Names of Group Members** | *\<list one student name, group, and ID per line; you should be between 2 and 5 members per group\>* \| \| 1. 136714 - A - Meshack Owino \| \| 2. 121717 - A - Celestine Nyaata \| 3. 134455 - A - Arnold Owoko \| \| 4. 135372 - A - Allan Mwandawiro \| \| |
+| **GitHub Classroom Group Name** | Wisdom                                            |                                                                                                                                                                                                                                                              |
+| **Course Code**                 | BBT4206                                           |                                                                                                                                                                                                                                                              |
+| **Course Name**                 | Business Intelligence II                          |                                                                                                                                                                                                                                                              |
+| **Program**                     | Bachelor of Business Information Technology       |                                                                                                                                                                                                                                                              |
+| **Semester Duration**           | 21^st^ August 2023 to 28^th^ November 2023        |                                                                                                                                                                                                                                                              |
 
 # Setup Chunk
 
-**Note:** the following "*KnitR*" options have been set as the defaults:\
+**Note:** the following "*KnitR*" options have been set as the
+defaults:\
 `knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy.opts = list(width.cutoff = 80), tidy = TRUE)`.
 
-More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and here <https://yihui.org/knitr/options/>.
+More KnitR options are documented here
+<https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and
+here <https://yihui.org/knitr/options/>.
 
 ```{r setup, include=FALSE}
 library(formatR)
@@ -52,7 +42,8 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE,
                       collapse = FALSE, tidy = TRUE)
 ```
 
-**Note:** the following "*R Markdown*" options have been set as the defaults:
+**Note:** the following "*R Markdown*" options have been set as the
+defaults:
 
 > output:\
 > \
@@ -66,40 +57,364 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE,
 > editor_options:\
 > chunk_output_type: console
 
-# \<Provide an Appropriate Title Here\>
+# Install and Load required packages
 
+Describe the code chunk here:
+
+
+<<<<<<< Updated upstream
 Describe the code chunk here:
 
 ```{r Your Second Code Chunk}
 # Fill this with R related code that will be executed when the R markdown file
 # is rendered using knitR
+=======
+```{r Your First Code Chunk}
+.libPaths()
+lapply(.libPaths(), list.files)
+require("languageserver")
+require("dplyr")
+require("pandoc")
+require("ggplot2")
+require("ggrepel")
+require("ggraph")
+require("tidytext")
+require("tidyr")
+require("widyr")
+require("gridExtra")
+require("knitr")
+require("kableExtra")
+require("formattable")
+require("circlize")
+require("memery")
+require("magick")
+require("yarrr")
+require("radarchart")
+require("igraph")
+require("wordcloud2")
+require("readr")
+
+## The following code defines a blue grey color scheme for visualizations
+blue_grey_colours_11 <- c("#27408E", "#304FAF", "#536CB5", "#6981c7", "#8da0db",
+                          "#dde5ec", "#c8c9ca", "#B9BCC2", "#A7AAAF", "#888A8E",
+                          "#636569")
+
+blue_grey_colours_6 <- c("#27408E", "#304FAF", "#536CB5",
+                         "#B9BCC2", "#A7AAAF", "#888A8E")
+
+blue_grey_colours_4 <- c("#27408E", "#536CB5",
+                         "#B9BCC2", "#888A8E")
+
+blue_grey_colours_2 <- c("#27408E",
+                         "#888A8E")
+
+blue_grey_colours_1 <- c("#6981c7")
+
+
+blue_grey_theme <- function() {
+  theme(
+    axis.ticks = element_line(
+                              linewidth = 1, linetype = "dashed",
+                              lineend = NULL, color = "#dfdede",
+                              arrow = NULL, inherit.blank = FALSE),
+    axis.text = element_text(
+                             face = "bold", color = "#3f3f41",
+                             size = 12, hjust = 0.5),
+    axis.title = element_text(face = "bold", color = "#3f3f41",
+                              size = 14, hjust = 0.5),
+    plot.title = element_text(face = "bold", color = "#3f3f41",
+                              size = 16, hjust = 0.5),
+    panel.grid = element_line(
+                              linewidth = 0.1, linetype = "dashed",
+                              lineend = NULL, color = "#dfdede",
+                              arrow = NULL, inherit.blank = FALSE),
+    panel.background = element_rect(fill = "#f3eeee"),
+    legend.title = element_text(face = "plain", color = "#3f3f41",
+                                size = 12, hjust = 0),
+    legend.position = "right"
+  )
+}
+
+##The code customize the text tables for consistency using html forecasting 
+kable_theme <- function(dat, caption) {
+  kable(dat, "html", escape = FALSE, caption = caption) %>%
+    kable_styling(bootstrap_options = c("striped", "condensed", "bordered"),
+                  full_width = FALSE)
+}
+
+```
+
+#Loaded the Student Performance Dataset
+
+Describe the code chunk here:
+
+```{r Your Second Code Chunk}
+##The code loads the dataset
+>>>>>>> Stashed changes
 library(readr)
 ```
+
+#Evaluation of the Students per gender in a plane tabular output
 
 Describe the next code chunk here:
 
 ```{r Your Third Code Chunk}
+<<<<<<< Updated upstream
 # Fill this with other R related code that will be executed when the R markdown
 # file is rendered using knitR
 library(readr)
+=======
+##The following code evaluates reading of contents before lectures by students per gender in a plane tabular output
+
+evaluation_per_group_per_gender <- student_performance_dataset %>% 
+  mutate(`Student's Gender` =
+           ifelse(gender == 1, "Male", "Female")) %>%
+  select(class_group, gender,
+         `Student's Gender`,`Average Course Evaluation Rating`, `read_content_before_lecture`) %>%
+  filter(!is.na(`Average Course Evaluation Rating`)) %>%
+  group_by(class_group,`Student's Gender`,`read_content_before_lecture`) %>%
+  summarise(average_evaluation_rating =
+              mean(`Average Course Evaluation Rating`)) %>%
+  arrange(desc(average_evaluation_rating), .by_group = TRUE)
+>>>>>>> Stashed changes
 ```
 
-## \<You Can Have a Sub-Title Here\>
+#Evaluation of the Students per gender in a visual bar chart
 
 ```{r Your Fourth Code Chunk}
+<<<<<<< Updated upstream
 # Fill this with other R related code that will be executed when the R markdown
 # file is rendered using knitR
 library(readr)
+=======
+##The following code evaluates reading of contents before lectures by students per gender in a visual bar chart
+
+evaluation_per_group_per_gender %>%
+  ggplot() +
+  geom_bar(aes(x = class_group, y = read_content_before_lecture,
+               fill =`Student's Gender`),
+           stat = "identity", position = "dodge") +
+  expand_limits(y = 0) +
+  blue_grey_theme() +
+  scale_fill_manual(values = blue_grey_colours_2) +
+  ggtitle("Reading Before Lecture Evaluation per Group and per Gender") +
+  labs(x = "Class Group", y = "Average Rating")
+>>>>>>> Stashed changes
 ```
 
-# \<You can Provide Another Appropriate Title Here\>
+#Evaluation of the Students per gender in a decorated tabular output
 
 Describe the code chunk here:
 
 ```{r Your Fifth Code Chunk}
+<<<<<<< Updated upstream
 # Fill this with R related code that will be executed when the R markdown file
 # is rendered using knitR
 library(readr)
 ```
 
+=======
+##The following code evaluates reading of contents before lectures by students per gender in a decorated tabular output
+
+evaluation_per_group_per_gender %>%
+  rename(`Class Group` = class_group) %>%
+  rename(`Read Before Lecture` = read_content_before_lecture ) %>%
+  select(`Class Group`, `Student's Gender`, `Read Before Lecture`) %>%
+  mutate(`Read Before Lecture` =
+           color_tile("#B9BCC2", "#536CB5")
+           (`Read Before Lecture`)) %>%
+  kable("html", escape = FALSE, align = "c",
+        caption = "Reading Before Lecture Evaluation per Group and per Gender") %>%
+  kable_styling(bootstrap_options =
+                  c("striped", "condensed", "bordered"),
+                full_width = FALSE)
+```
+
+
+#Expand contractions in the English language 
+
+```{r Your Sixth Code Chunk}
+##A function to expand contractions in an English-language source
+
+expand_contractions <- function(doc) {
+  doc <- gsub("I'm", "I am", doc, ignore.case = TRUE)
+  doc <- gsub("you're", "you are", doc, ignore.case = TRUE)
+  doc <- gsub("he's", "he is", doc, ignore.case = TRUE)
+  doc <- gsub("she's", "she is", doc, ignore.case = TRUE)
+  doc <- gsub("it's", "it is", doc, ignore.case = TRUE)
+  doc <- gsub("we're", "we are", doc, ignore.case = TRUE)
+  doc <- gsub("they're", "they are", doc, ignore.case = TRUE)
+  doc <- gsub("I'll", "I will", doc, ignore.case = TRUE)
+  doc <- gsub("you'll", "you will", doc, ignore.case = TRUE)
+  doc <- gsub("he'll", "he will", doc, ignore.case = TRUE)
+  doc <- gsub("she'll", "she will", doc, ignore.case = TRUE)
+  doc <- gsub("it'll", "it will", doc, ignore.case = TRUE)
+  doc <- gsub("we'll", "we will", doc, ignore.case = TRUE)
+  doc <- gsub("they'll", "they will", doc, ignore.case = TRUE)
+  doc <- gsub("won't", "will not", doc, ignore.case = TRUE)
+  doc <- gsub("can't", "cannot", doc, ignore.case = TRUE)
+  doc <- gsub("n't", " not", doc, ignore.case = TRUE)
+  return(doc)
+}
+
+```
+
+#Student evaluation based on likes and wishes
+
+```{r Your Seventh Code Chunk}
+
+evaluation_likes_and_wishes <- student_performance_dataset %>%
+  mutate(`Student's Gender` =
+           ifelse(gender == 1, "Male", "Female")) %>%
+  rename(`Class Group` = class_group) %>%
+  rename(Likes = `D - 1. \nWrite two things you like about the teaching and learning in this unit so far.`) %>% 
+  rename(Wishes = `D - 2. Write at least one recommendation to improve the teaching and learning in this unit (for the remaining weeks in the semester)`) %>% 
+  select(`Class Group`,
+         `Student's Gender`, `Average Course Evaluation Rating`,
+         Likes, Wishes) %>%
+  filter(!is.na(`Average Course Evaluation Rating`)) %>%
+  arrange(`Class Group`)
+
+View(evaluation_likes_and_wishes)
+
+evaluation_likes_and_wishes$Likes <- sapply(evaluation_likes_and_wishes$Likes, expand_contractions) 
+evaluation_likes_and_wishes$Wishes <- sapply(evaluation_likes_and_wishes$Wishes, expand_contractions) 
+
+View(evaluation_likes_and_wishes)
+
+```
+
+#Removal of special characters
+
+```{r Your Eighth Code Chunk}
+
+remove_special_characters <- function(doc) {
+  gsub("[^a-zA-Z0-9 ]", "", doc, ignore.case = TRUE)
+}
+
+View(evaluation_likes_and_wishes)
+
+evaluation_likes_and_wishes$Likes <- sapply(evaluation_likes_and_wishes$Likes, remove_special_characters) 
+evaluation_likes_and_wishes$Wishes <- sapply(evaluation_likes_and_wishes$Wishes, remove_special_characters) 
+
+
+evaluation_likes_and_wishes$Likes <- sapply(evaluation_likes_and_wishes$Likes, tolower) 
+evaluation_likes_and_wishes$Wishes <- sapply(evaluation_likes_and_wishes$Wishes, tolower) 
+
+View(evaluation_likes_and_wishes)
+
+```
+
+#Tokenization 
+
+```{r Your Tenth Code Chunk}
+
+evaluation_wishes_filtered <- evaluation_likes_and_wishes %>%
+  unnest_tokens(word, Wishes) %>%
+  anti_join(stop_words, by = c("word")) %>%
+  distinct() %>%
+  filter(!word %in% undesirable_words) %>%
+  filter(nchar(word) > 3) %>%
+  rename(`Wishes (tokenized)` = word) %>%
+  select(-Likes)
+
+write.csv(evaluation_wishes_filtered,
+          file = "../data/evaluation_wishes_filtered.csv",
+          row.names = FALSE)
+
+
+evaluation_likes_filtered %>%
+  select(`Class Group`, `Student's Gender`,
+         `Average Course Evaluation Rating`, `Likes (tokenized)`) %>%
+  filter(`Student's Gender` == "Female") %>%
+  count(`Likes (tokenized)`, sort = TRUE) %>%
+  top_n(14) %>%
+  mutate(`Likes (tokenized)` = reorder(`Likes (tokenized)`, n)) %>%
+  ggplot() +
+  geom_col(aes(`Likes (tokenized)`, n), fill = blue_grey_colours_1) +
+  blue_grey_theme() +
+  xlab("Word in Course Evaluation") +
+  ylab("Number of Times Used (Term Frequency)") +
+  ggtitle("Most Frequently Used Words in Course Evaluation Likes for Female
+          Students") +
+  coord_flip()
+
+
+evaluation_likes_filtered %>%
+  select(`Class Group`, `Student's Gender`,
+         `Average Course Evaluation Rating`, `Likes (tokenized)`) %>%
+  filter(`Student's Gender` == "Male") %>%
+  count(`Likes (tokenized)`, sort = TRUE) %>%
+  top_n(14) %>%
+  mutate(`Likes (tokenized)` = reorder(`Likes (tokenized)`, n)) %>%
+  ggplot() +
+  geom_col(aes(`Likes (tokenized)`, n), fill = blue_grey_colours_1) +
+  blue_grey_theme() +
+  xlab("Word in Course Evaluation") +
+  ylab("Number of Times Used (Term Frequency)") +
+  ggtitle("Most Frequently Used Words in Course Evaluation Likes for Male
+          Students") +
+  coord_flip()
+```
+
+#Evaluation of Likes And Wishes using word cloud
+
+```{r Your Eleventh Code Chunk}
+evaluation_likes_filtered_cloud <- evaluation_likes_filtered %>% 
+  count(`Likes (tokenized)`, sort = TRUE)
+
+wordcloud2(evaluation_likes_filtered_cloud, size = .7)
+
+
+evaluation_wishes_filtered_cloud <- evaluation_wishes_filtered %>% 
+  count(`Wishes (tokenized)`, sort = TRUE)
+
+wordcloud2(evaluation_wishes_filtered_cloud, size = .6)
+```
+
+#Evaluate Importance of a word in a Document using TF-IDF 
+
+```{r Your Twelveth Code Chunk}
+
+popular_tfidf_words_gender_wishes <- evaluation_wishes_filtered %>% 
+  unnest_tokens(word, `Wishes (tokenized)`) %>%
+  distinct() %>%
+  filter(!word %in% undesirable_words) %>%
+  filter(nchar(word) > 3) %>%
+  rename(`Wishes (tokenized)` = word) %>%
+  select(`Class Group`, `Student's Gender`,
+         `Average Course Evaluation Rating`, `Wishes (tokenized)`) %>%
+  count(`Student's Gender`, `Wishes (tokenized)`, sort = TRUE) %>%
+  ungroup() %>%
+  bind_tf_idf(`Wishes (tokenized)`, `Student's Gender`, n)
+
+head(popular_tfidf_words_gender_wishes)
+
+top_popular_tfidf_words <- popular_tfidf_words_gender_wishes %>%
+  arrange(desc(tf_idf)) %>%
+  mutate(`Wishes (tokenized)` =
+           factor(`Wishes (tokenized)`,
+                  levels = rev(unique(`Wishes (tokenized)`)))) %>%
+  group_by(`Student's Gender`) %>%
+  slice(seq_len(10)) %>%
+  ungroup() %>%
+  arrange(`Student's Gender`, tf_idf) %>%
+  mutate(row = row_number())
+
+top_popular_tfidf_words %>%
+  ggplot(aes(x = row, tf_idf, fill = `Student's Gender`)) +
+  geom_col(fill = blue_grey_colours_1) +
+  blue_grey_theme() +
+  labs(x = "Word in Course Evaluation", y = "TF-IDF Score") +
+  ggtitle("Important Words using TF-IDF by Chart Level") +
+  ggtitle("Most Important Words by TF-IDF Score in Course Evaluation Wishes per
+      Class Group") +
+  facet_wrap(~`Student's Gender`, scales = "free") +
+  scale_x_continuous(
+                     breaks = top_popular_tfidf_words$row,
+                     labels = top_popular_tfidf_words$`Wishes (tokenized)`) +
+  coord_flip()
+```
+
+>>>>>>> Stashed changes
 **etc.** as per the lab submission requirements.
