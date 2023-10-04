@@ -122,6 +122,12 @@ if (!is.element("dplyr", installed.packages()[, 1])) {
 }
 require("dplyr")
 
+## pandoc - For data manipulation ----
+if (!is.element("pandoc", installed.packages()[, 1])) {
+  install.packages("pandoc", dependencies = TRUE)
+}
+require("pandoc")
+
 ## ggplot2 - For data visualizations using the Grammar for Graphics package ----
 if (!is.element("ggplot2", installed.packages()[, 1])) {
   install.packages("ggplot2", dependencies = TRUE)
@@ -539,6 +545,7 @@ evaluation_likes_and_wishes$Likes <- sapply(evaluation_likes_and_wishes$Likes, t
 evaluation_likes_and_wishes$Wishes <- sapply(evaluation_likes_and_wishes$Wishes, tolower) # nolint
 
 # After removing special characters and converting everything to lower case
+
 View(evaluation_likes_and_wishes)
 
 # [OPTIONAL] You can save the file as a CSV at this point
@@ -993,6 +1000,7 @@ popular_words %>%
 #   10. Statistical limitations
 
 ## Evaluation Likes ----
+
 evaluation_likes_filtered_cloud <- evaluation_likes_filtered %>% # nolint
   count(`Likes (tokenized)`, sort = TRUE)
 
@@ -1277,6 +1285,8 @@ top_popular_tfidf_words %>%
                      breaks = top_popular_tfidf_words$row,
                      labels = top_popular_tfidf_words$`Wishes (tokenized)`) +
   coord_flip()
+
+install.packages('knitr')
 
 # [OPTIONAL] **Deinitialization: Create a snapshot of the R environment ----
 # Lastly, as a follow-up to the initialization step, record the packages
